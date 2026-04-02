@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LeadFlow — B2B Pipeline on Autopilot</title>
+<title>Salutation Headquarters — B2B Pipeline on Autopilot</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -42,15 +42,29 @@
     border-bottom: 1px solid rgba(255,255,255,.05);
   }
   .nav-logo {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 800; font-size: 18px; letter-spacing: -.4px;
+    display: flex; align-items: center; gap: 12px;
+    font-weight: 800; font-size: 17px; letter-spacing: -.3px;
+    color: var(--text);
   }
   .nav-logo-icon {
-    width: 30px; height: 30px;
-    background: linear-gradient(135deg, var(--primary), var(--purple));
-    border-radius: 8px;
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+    border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 15px;
+    box-shadow: 0 0 16px rgba(79,110,247,.45);
+    flex-shrink: 0;
+  }
+  .nav-logo-icon svg {
+    width: 18px; height: 18px;
+  }
+  .nav-logo-text {
+    display: flex; flex-direction: column; line-height: 1;
+  }
+  .nav-logo-name {
+    font-size: 15px; font-weight: 800; letter-spacing: -.3px;
+  }
+  .nav-logo-tagline {
+    font-size: 10px; font-weight: 500; color: var(--text3); letter-spacing: .3px; text-transform: uppercase; margin-top: 2px;
   }
   .nav-links { display: flex; gap: 28px; margin-left: 32px; }
   .nav-links a { font-size: 14px; color: var(--text2); transition: color .15s; }
@@ -484,18 +498,18 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-icon">⚡</div>
-    LeadFlow
+<div class="nav-logo-text">
+      <div class="nav-logo-name">Salutation HQ</div>
+      <div class="nav-logo-tagline">B2B Outreach</div>
+    </div>
   </div>
   <div class="nav-links">
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
     <a href="#example">Example</a>
-    <a href="#pricing">Pricing</a>
   </div>
   <div class="nav-cta">
-    <button class="btn-nav btn-ghost-nav">Sign in</button>
-    <button class="btn-nav btn-primary-nav">Get started →</button>
+    <a href="mailto:contact@salutationhq.com" class="btn-nav btn-primary-nav">Contact</a>
   </div>
 </nav>
 
@@ -514,16 +528,11 @@
   </h1>
 
   <p class="hero-sub">
-    Drop in a list of email addresses. LeadFlow enriches every company, scores each lead, writes personalized cold emails, and sends them — automatically.
+    Drop in a list of email addresses. Salutation Headquarters enriches every company, scores each lead, writes personalized cold emails, and sends them — automatically.
   </p>
 
   <div class="hero-actions">
-    <button class="btn-hero-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
-      Start for free →
-    </button>
-    <button class="btn-hero-ghost" onclick="document.getElementById('example').scrollIntoView({behavior:'smooth'})">
-      See it in action
-    </button>
+    <a href="mailto:contact@salutationhq.com" class="btn-hero-primary">Contact</a>
   </div>
 
   <div class="social-proof">
@@ -534,7 +543,7 @@
       <div class="avatar" style="background:#F59E0B">J</div>
       <div class="avatar" style="background:#EF4444">K</div>
     </div>
-    <span>Trusted by <strong>500+</strong> sales teams</span>
+    <span>Trusted by sales teams worldwide</span>
     <span style="color:var(--text3)">·</span>
     <span>⭐⭐⭐⭐⭐ 4.9 / 5</span>
   </div>
@@ -629,10 +638,6 @@
       <div class="stat-val" style="color:#A78BFA">100%</div>
       <div class="stat-desc">AI-personalized per company</div>
     </div>
-    <div class="stat-block">
-      <div class="stat-val">500+</div>
-      <div class="stat-desc">sales teams running LeadFlow</div>
-    </div>
   </div>
 </div>
 
@@ -640,13 +645,13 @@
 <section id="how">
   <div class="section-tag">How it works</div>
   <h2>Five steps from list<br>to booked meeting</h2>
-  <p class="section-sub">LeadFlow handles the entire pipeline — research, scoring, writing, and sending — so your team only talks to people worth talking to.</p>
+  <p class="section-sub">Salutation Headquarters handles the entire pipeline — research, scoring, writing, and sending — so your team only talks to people worth talking to.</p>
 
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-num">1</div>
       <div class="step-title">Drop in your email list</div>
-      <div class="step-desc">Paste emails directly, upload a CSV, or pipe them in via API. LeadFlow validates, deduplicates, and ingests them instantly.</div>
+      <div class="step-desc">Paste emails directly, upload a CSV, or pipe them in via API. Salutation Headquarters validates, deduplicates, and ingests them instantly.</div>
       <div class="step-tags">
         <span class="step-tag">CSV upload</span>
         <span class="step-tag">Direct paste</span>
@@ -730,7 +735,7 @@
 <div class="example-section" id="example">
   <div class="example-inner">
     <div class="section-tag">Live example</div>
-    <h2>See what LeadFlow<br>produces for a real lead</h2>
+    <h2>See what Salutation Headquarters<br>produces for a real lead</h2>
     <p class="section-sub" style="margin-bottom:0">This is actual output from the pipeline — not a mockup.</p>
 
     <div class="example-grid">
@@ -807,86 +812,27 @@ Most clients see their first meetings within 2 weeks. Would it be worth a 20-min
   </div>
 </div>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div style="text-align:center">
-    <div class="section-tag" style="margin-bottom:16px">Pricing</div>
-    <h2>Simple, transparent pricing</h2>
-    <p class="section-sub" style="margin:0 auto">Start free. Scale as you grow. No hidden fees, no per-email charges.</p>
-  </div>
-
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-name">Starter</div>
-      <div class="pricing-price">$0</div>
-      <div class="pricing-period">Forever free</div>
-      <div class="pricing-desc">Perfect for trying the pipeline on your first batch of leads.</div>
-      <div class="pricing-features">
-        <div class="pricing-feature"><div class="pf-check">✓</div>50 leads / month</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>AI enrichment + scoring</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Email generation (Claude)</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>CSV + JSON export</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>SQLite storage</div>
-      </div>
-      <button class="pricing-btn pricing-btn-ghost">Get started free</button>
-    </div>
-
-    <div class="pricing-card featured">
-      <div class="pricing-name">Growth</div>
-      <div class="pricing-price">$149</div>
-      <div class="pricing-period">per month</div>
-      <div class="pricing-desc">For sales teams running outbound at scale with full automation.</div>
-      <div class="pricing-features">
-        <div class="pricing-feature"><div class="pf-check">✓</div>2,000 leads / month</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Everything in Starter</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Automated email sending</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Follow-up scheduling</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Clearbit + Hunter enrichment</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>PostgreSQL + CRM sync</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Priority support</div>
-      </div>
-      <button class="pricing-btn pricing-btn-primary">Start Growth plan →</button>
-    </div>
-
-    <div class="pricing-card">
-      <div class="pricing-name">Agency</div>
-      <div class="pricing-price">$499</div>
-      <div class="pricing-period">per month</div>
-      <div class="pricing-desc">For agencies running pipelines across multiple client accounts.</div>
-      <div class="pricing-features">
-        <div class="pricing-feature"><div class="pf-check">✓</div>Unlimited leads</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Everything in Growth</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Multi-account management</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>White-label output</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Custom ICP configuration</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>API access + webhooks</div>
-        <div class="pricing-feature"><div class="pf-check">✓</div>Dedicated Slack channel</div>
-      </div>
-      <button class="pricing-btn pricing-btn-ghost">Talk to sales</button>
-    </div>
-  </div>
-</section>
 
 <!-- CTA -->
 <div class="cta-section">
   <h2>Ready to fill your pipeline?</h2>
   <p>Drop in a CSV of emails and get your first batch of scored, personalized leads in under 60 seconds.</p>
   <div class="cta-actions">
-    <button class="btn-hero-primary">Start for free →</button>
-    <button class="btn-hero-ghost">Book a demo</button>
+    <a href="mailto:contact@salutationhq.com" class="btn-hero-primary">Contact</a>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">⚡ LeadFlow</div>
+  <div class="footer-logo">⚡ Salutation Headquarters</div>
   <div class="footer-links">
     <a href="#">Privacy</a>
     <a href="#">Terms</a>
     <a href="#">Docs</a>
     <a href="#">GitHub</a>
+    <a href="mailto:contact@salutationhq.com">contact@salutationhq.com</a>
   </div>
-  <div>© 2026 LeadFlow. All rights reserved.</div>
+  <div>© 2026 Salutation Headquarters. All rights reserved.</div>
 </footer>
 
 </body>

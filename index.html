@@ -3,22 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Salutation Headquarters — B2B Pipeline on Autopilot</title>
+<title>Salutation HQ</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:      #060912;
-    --bg2:     #0C1120;
-    --surface: #101828;
-    --border:  #1C2B45;
+    --bg:      #080C14;
+    --surface: #0F1622;
+    --border:  #1A2640;
     --primary: #4F6EF7;
-    --primary-l:#6B86F8;
-    --green:   #10B981;
-    --purple:  #7C3AED;
     --text:    #E8EDF5;
     --text2:   #7E94B8;
-    --text3:   #4B5E7A;
+    --text3:   #3D5070;
+    --green:   #10B981;
   }
 
   html { scroll-behavior: smooth; }
@@ -29,810 +26,352 @@
     line-height: 1.6;
     overflow-x: hidden;
   }
-
   a { color: inherit; text-decoration: none; }
 
-  /* ── NAV ──────────────────────────────────────────────────────────────── */
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; gap: 20px;
-    padding: 0 48px; height: 60px;
-    background: rgba(6,9,18,.85);
-    backdrop-filter: blur(16px);
+    display: flex; align-items: center;
+    padding: 0 48px; height: 64px;
+    background: rgba(8,12,20,.85);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255,255,255,.05);
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 12px;
-    font-weight: 800; font-size: 17px; letter-spacing: -.3px;
-    color: var(--text);
+  .nav-logo { font-size: 16px; font-weight: 700; letter-spacing: -.2px; color: var(--text); }
+  .nav-contact {
+    margin-left: auto;
+    padding: 8px 20px; border-radius: 8px;
+    background: var(--primary); color: #fff;
+    font-size: 14px; font-weight: 600;
+    transition: opacity .15s;
   }
-  .nav-logo-icon {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 16px rgba(79,110,247,.45);
-    flex-shrink: 0;
-  }
-  .nav-logo-icon svg {
-    width: 18px; height: 18px;
-  }
-  .nav-logo-text {
-    display: flex; flex-direction: column; line-height: 1;
-  }
-  .nav-logo-name {
-    font-size: 15px; font-weight: 800; letter-spacing: -.3px;
-  }
-  .nav-logo-tagline {
-    font-size: 10px; font-weight: 500; color: var(--text3); letter-spacing: .3px; text-transform: uppercase; margin-top: 2px;
-  }
-  .nav-links { display: flex; gap: 28px; margin-left: 32px; }
-  .nav-links a { font-size: 14px; color: var(--text2); transition: color .15s; }
-  .nav-links a:hover { color: var(--text); }
-  .nav-cta { margin-left: auto; display: flex; gap: 10px; align-items: center; }
-  .btn-nav {
-    padding: 7px 18px; border-radius: 8px; font-size: 14px; font-weight: 600;
-    cursor: pointer; border: none; transition: all .15s;
-  }
-  .btn-ghost-nav {
-    background: transparent; color: var(--text2);
-    border: 1px solid var(--border);
-  }
-  .btn-ghost-nav:hover { color: var(--text); border-color: var(--text3); }
-  .btn-primary-nav { background: var(--primary); color: #fff; }
-  .btn-primary-nav:hover { background: var(--primary-l); }
+  .nav-contact:hover { opacity: .85; }
 
-  /* ── HERO ─────────────────────────────────────────────────────────────── */
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
     text-align: center;
     padding: 120px 48px 80px;
     position: relative;
     overflow: hidden;
   }
 
-  /* grid bg */
+  /* grid lines */
   .hero::before {
     content: '';
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(79,110,247,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(79,110,247,.06) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 40%, transparent 100%);
-  }
-
-  /* glow */
-  .hero-glow {
-    position: absolute;
-    width: 900px; height: 500px;
-    background: radial-gradient(ellipse, rgba(79,110,247,.2) 0%, transparent 70%);
-    top: -100px; left: 50%; transform: translateX(-50%);
+      linear-gradient(rgba(79,110,247,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,110,247,.05) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 20%, transparent 80%);
     pointer-events: none;
   }
 
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 5px 14px;
-    background: rgba(79,110,247,.12);
-    border: 1px solid rgba(79,110,247,.25);
-    border-radius: 99px;
-    font-size: 12px; font-weight: 600;
-    color: var(--primary-l);
+  /* blue glow */
+  .hero-glow {
+    position: absolute;
+    width: 800px; height: 600px;
+    background: radial-gradient(ellipse, rgba(79,110,247,.18) 0%, transparent 65%);
+    top: -80px; left: 50%; transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  /* purple glow bottom right */
+  .hero-glow-2 {
+    position: absolute;
+    width: 500px; height: 400px;
+    background: radial-gradient(ellipse, rgba(124,58,237,.12) 0%, transparent 70%);
+    bottom: 0; right: -100px;
+    pointer-events: none;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 6vw, 82px);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.02;
+    max-width: 840px;
     margin-bottom: 28px;
     position: relative;
   }
-  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: pulse 1.5s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
-
-  h1 {
-    font-size: clamp(42px, 6vw, 78px);
-    font-weight: 800;
-    letter-spacing: -2.5px;
-    line-height: 1.05;
-    max-width: 900px;
-    position: relative;
-    margin-bottom: 24px;
-  }
-  .gradient-text {
-    background: linear-gradient(135deg, #fff 30%, var(--primary-l) 70%, #A78BFA 100%);
+  .hero h1 .dim { color: var(--text2); }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, #fff 20%, #8BA4FF 60%, #A78BFA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .hero-sub {
-    font-size: 20px; color: var(--text2); max-width: 560px;
-    line-height: 1.6; margin-bottom: 40px; position: relative;
+  .hero p {
+    font-size: 19px; color: var(--text2);
+    max-width: 460px; line-height: 1.65;
+    margin-bottom: 44px; position: relative;
   }
-
-  .hero-actions { display: flex; gap: 12px; align-items: center; position: relative; margin-bottom: 60px; }
-  .btn-hero-primary {
-    padding: 14px 32px; border-radius: 10px;
+  .hero-cta {
+    display: inline-block;
+    padding: 15px 36px; border-radius: 10px;
     background: var(--primary); color: #fff;
     font-size: 16px; font-weight: 700;
-    border: none; cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 40px rgba(79,110,247,.3);
     transition: all .2s;
-    box-shadow: 0 0 40px rgba(79,110,247,.35);
   }
-  .btn-hero-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 50px rgba(79,110,247,.5); }
-  .btn-hero-ghost {
-    padding: 14px 28px; border-radius: 10px;
-    background: transparent; color: var(--text2);
-    border: 1px solid var(--border);
-    font-size: 16px; font-weight: 600;
-    cursor: pointer; transition: all .15s;
-  }
-  .btn-hero-ghost:hover { color: var(--text); border-color: var(--text3); }
+  .hero-cta:hover { opacity: .9; transform: translateY(-1px); box-shadow: 0 4px 50px rgba(79,110,247,.45); }
 
-  /* social proof */
-  .social-proof {
-    display: flex; align-items: center; gap: 16px;
-    position: relative; color: var(--text2); font-size: 13px;
+  /* ── SECTION DIVIDER ── */
+  .divider {
+    max-width: 760px; margin: 0 auto;
+    padding: 0 48px;
+    border-top: 1px solid var(--border);
   }
-  .avatars { display: flex; }
-  .avatar {
-    width: 28px; height: 28px; border-radius: 50%;
-    border: 2px solid var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700;
-    margin-left: -8px;
-  }
-  .avatar:first-child { margin-left: 0; }
 
-  /* ── APP PREVIEW ──────────────────────────────────────────────────────── */
-  .preview-wrap {
-    position: relative; max-width: 1100px; width: 100%; margin: 0 auto;
+  /* ── EMAIL EXAMPLE ── */
+  .example {
+    padding: 80px 48px 60px;
+    max-width: 760px;
+    margin: 0 auto;
   }
-  .preview-glow {
-    position: absolute; inset: -40px;
-    background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(79,110,247,.15), transparent 70%);
-    pointer-events: none;
+  .example-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: var(--text3);
+    margin-bottom: 20px;
   }
-  .preview-frame {
+
+  /* email chrome */
+  .email-chrome {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 40px 120px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04);
-    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.03);
   }
-  .preview-bar {
+  .chrome-bar {
     display: flex; align-items: center; gap: 6px;
-    padding: 12px 16px;
-    background: #0d1625;
+    padding: 14px 18px;
+    background: #0A1020;
     border-bottom: 1px solid var(--border);
   }
   .dot { width: 11px; height: 11px; border-radius: 50%; }
   .dot-r { background: #FF5F57; }
   .dot-y { background: #FEBC2E; }
   .dot-g { background: #28C840; }
-  .preview-url {
+  .chrome-title {
     flex: 1; text-align: center;
-    background: rgba(255,255,255,.04);
-    border-radius: 6px;
-    padding: 4px 12px;
-    font-size: 12px; color: var(--text3);
-    max-width: 280px; margin: 0 auto;
+    font-size: 12px; color: var(--text3); letter-spacing: .2px;
   }
 
-  /* mini-app inside preview */
-  .mini-app {
-    display: flex;
-    height: 380px;
+  .email-meta {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 5px;
+    background: rgba(255,255,255,.01);
   }
-  .mini-sidebar {
-    width: 220px;
-    border-right: 1px solid var(--border);
-    padding: 12px 0;
-    background: #0e1929;
-  }
-  .mini-lead {
-    padding: 10px 14px;
-    display: flex; align-items: center; gap: 8px;
-    cursor: pointer; transition: background .1s;
-  }
-  .mini-lead.active { background: rgba(79,110,247,.1); border-left: 2px solid var(--primary); }
-  .mini-lead:hover:not(.active) { background: rgba(255,255,255,.03); }
-  .mini-avatar { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0; }
-  .mini-name { font-size: 12px; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .mini-score { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 4px; }
-  .sc-high { background: rgba(16,185,129,.2); color: #10B981; }
-  .sc-med  { background: rgba(245,158,11,.15); color: #F59E0B; }
-  .sc-low  { background: rgba(239,68,68,.15); color: #EF4444; }
+  .email-meta-row { display: flex; gap: 10px; font-size: 13px; }
+  .email-meta-row .lbl { color: var(--text3); width: 36px; flex-shrink: 0; }
+  .email-meta-row .val { color: var(--text2); }
 
-  .mini-main { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
-  .mini-company-bar { display: flex; align-items: center; gap: 10px; }
-  .mini-company-logo { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-  .mini-company-info { flex: 1; }
-  .mini-company-name { font-size: 14px; font-weight: 700; }
-  .mini-company-meta { font-size: 11px; color: var(--text2); }
-  .mini-big-score { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
-
-  .mini-bars { display: flex; flex-direction: column; gap: 6px; }
-  .mini-bar-row { display: flex; align-items: center; gap: 8px; }
-  .mini-bar-lbl { font-size: 10px; color: var(--text2); width: 72px; text-align: right; }
-  .mini-bar-track { flex: 1; height: 4px; background: var(--border); border-radius: 99px; }
-  .mini-bar-fill { height: 100%; border-radius: 99px; }
-  .mini-bar-val { font-size: 10px; font-weight: 700; width: 24px; }
-
-  .mini-email-box {
-    background: rgba(79,110,247,.06);
-    border: 1px solid rgba(79,110,247,.15);
-    border-radius: 8px;
-    padding: 10px 12px;
-    flex: 1; overflow: hidden;
+  .email-body {
+    padding: 28px 24px;
+    font-size: 15px; color: var(--text2);
+    line-height: 1.9; white-space: pre-line;
   }
-  .mini-email-subj { font-size: 11px; font-weight: 600; margin-bottom: 6px; }
-  .mini-email-body { font-size: 10px; color: var(--text2); line-height: 1.6; overflow: hidden; max-height: 80px; }
-  .mini-send { display: inline-flex; align-items: center; gap: 4px; padding: 5px 12px; background: var(--primary); border-radius: 6px; font-size: 11px; font-weight: 700; margin-top: 8px; cursor: pointer; }
 
-  /* ── STATS ────────────────────────────────────────────────────────────── */
-  .stats-section {
-    padding: 80px 48px;
-    display: flex; justify-content: center;
+  .email-footer {
+    padding: 14px 24px;
+    border-top: 1px solid var(--border);
+    background: #0A1020;
+    display: flex; gap: 8px; align-items: center;
   }
-  .stats-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 1px; background: var(--border);
-    border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
-    max-width: 900px; width: 100%;
+  .send-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 16px; border-radius: 7px;
+    background: var(--primary); color: #fff;
+    font-size: 12px; font-weight: 700; cursor: pointer;
+    border: none;
   }
-  .stat-block {
-    background: var(--surface); padding: 36px 32px;
-    text-align: center;
-  }
-  .stat-val { font-size: 48px; font-weight: 800; letter-spacing: -2px; }
-  .stat-desc { font-size: 14px; color: var(--text2); margin-top: 4px; }
+  .send-btn svg { width: 13px; height: 13px; }
 
-  /* ── HOW IT WORKS ─────────────────────────────────────────────────────── */
-  section { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
-  .section-tag {
-    display: inline-block;
-    padding: 4px 14px; border-radius: 99px;
-    background: rgba(79,110,247,.1); border: 1px solid rgba(79,110,247,.2);
-    font-size: 12px; font-weight: 700; color: var(--primary-l);
-    text-transform: uppercase; letter-spacing: .8px;
-    margin-bottom: 16px;
+  /* ── RESULTS ── */
+  .results {
+    padding: 40px 48px 80px;
+    max-width: 760px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
   }
-  h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 14px; }
-  .section-sub { font-size: 18px; color: var(--text2); max-width: 540px; line-height: 1.6; }
-
-  .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
-  .step-card {
+  .result-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 28px;
-    transition: border-color .2s;
+    padding: 28px 24px;
     position: relative;
     overflow: hidden;
+    transition: border-color .2s;
   }
-  .step-card:hover { border-color: rgba(79,110,247,.4); }
-  .step-card::before {
+  .result-card:hover { border-color: rgba(79,110,247,.35); }
+  .result-card::before {
     content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--purple));
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(79,110,247,.4), transparent);
     opacity: 0; transition: opacity .2s;
   }
-  .step-card:hover::before { opacity: 1; }
-  .step-num {
-    width: 36px; height: 36px; border-radius: 10px;
-    background: rgba(79,110,247,.15);
-    border: 1px solid rgba(79,110,247,.25);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; font-weight: 800; color: var(--primary-l);
-    margin-bottom: 14px;
+  .result-card:hover::before { opacity: 1; }
+  .result-num {
+    font-size: 38px; font-weight: 800; letter-spacing: -1.5px;
+    margin-bottom: 8px;
   }
-  .step-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-  .step-desc { font-size: 14px; color: var(--text2); line-height: 1.7; }
-  .step-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-  .step-tag {
-    padding: 3px 10px; border-radius: 99px;
-    font-size: 11px; font-weight: 500;
-    background: rgba(255,255,255,.05); color: var(--text2);
-  }
+  .result-num.blue  { color: var(--primary); }
+  .result-num.green { color: var(--green); }
+  .result-num.white { color: var(--text); }
+  .result-desc { font-size: 14px; color: var(--text2); line-height: 1.5; }
 
-  /* ── FEATURES ─────────────────────────────────────────────────────────── */
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
-  .feature-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-  }
-  .feature-icon { font-size: 28px; margin-bottom: 14px; }
-  .feature-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-  .feature-desc { font-size: 14px; color: var(--text2); line-height: 1.65; }
-
-  /* ── LEAD CARD EXAMPLE ────────────────────────────────────────────────── */
-  .example-section {
-    padding: 80px 48px;
-    background: var(--bg2);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-  .example-inner { max-width: 1100px; margin: 0 auto; }
-  .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; margin-top: 48px; }
-  .example-lead-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px; overflow: hidden;
-  }
-  .elc-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 14px;
-  }
-  .elc-logo {
-    width: 44px; height: 44px; border-radius: 10px;
-    background: rgba(79,110,247,.2); color: var(--primary-l);
-    display: flex; align-items: center; justify-content: center; font-size: 20px;
-  }
-  .elc-name { font-size: 16px; font-weight: 700; }
-  .elc-meta { font-size: 12px; color: var(--text2); }
-  .elc-score { margin-left: auto; text-align: right; }
-  .elc-score-val { font-size: 32px; font-weight: 800; color: var(--green); letter-spacing: -1px; }
-  .elc-score-lbl { font-size: 10px; color: var(--text3); }
-  .elc-badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 10px; font-weight: 700; background: rgba(16,185,129,.15); color: var(--green); }
-  .elc-body { padding: 16px 20px; }
-  .elc-row { display: flex; flex-direction: column; gap: 10px; }
-  .elc-field { font-size: 12px; }
-  .elc-field-lbl { color: var(--text3); font-size: 10px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2px; }
-  .elc-field-val { color: var(--text2); line-height: 1.5; }
-  .elc-signals { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
-  .elc-signal { display: flex; align-items: flex-start; gap: 6px; font-size: 12px; color: var(--text2); }
-  .elc-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); margin-top: 5px; flex-shrink: 0; }
-
-  /* email card */
-  .email-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-  }
-  .ec-header {
-    padding: 12px 16px;
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .ec-header-dot { width: 8px; height: 8px; border-radius: 50%; }
-  .ec-to { font-size: 11px; color: var(--text2); margin-left: auto; }
-  .ec-body { padding: 20px; }
-  .ec-subject { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
-  .ec-text { font-size: 13px; color: var(--text2); line-height: 1.8; white-space: pre-line; }
-  .ec-footer {
-    padding: 12px 20px;
-    border-top: 1px solid var(--border);
-    display: flex; gap: 8px;
-    background: var(--bg2);
-  }
-  .ec-btn {
-    padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: none;
-  }
-  .ec-btn-primary { background: var(--primary); color: #fff; }
-  .ec-btn-ghost { background: rgba(255,255,255,.06); color: var(--text2); }
-
-  /* ── PRICING ──────────────────────────────────────────────────────────── */
-  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
-  .pricing-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px; padding: 28px;
-    position: relative;
-  }
-  .pricing-card.featured {
-    border-color: rgba(79,110,247,.4);
-    background: linear-gradient(145deg, #111e38, var(--surface));
-  }
-  .pricing-card.featured::before {
-    content: 'Most Popular';
-    position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-    padding: 3px 14px; background: var(--primary); border-radius: 99px;
-    font-size: 11px; font-weight: 700; color: #fff; white-space: nowrap;
-  }
-  .pricing-name { font-size: 14px; font-weight: 700; color: var(--text2); margin-bottom: 8px; }
-  .pricing-price { font-size: 42px; font-weight: 800; letter-spacing: -2px; margin-bottom: 4px; }
-  .pricing-period { font-size: 13px; color: var(--text3); }
-  .pricing-desc { font-size: 13px; color: var(--text2); margin: 14px 0 20px; }
-  .pricing-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
-  .pricing-feature { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text2); }
-  .pf-check { color: var(--green); font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-  .pricing-btn {
-    width: 100%; padding: 11px; border-radius: 9px; font-size: 14px; font-weight: 700;
-    cursor: pointer; border: none; transition: all .15s;
-  }
-  .pricing-btn-ghost { background: rgba(255,255,255,.06); color: var(--text); }
-  .pricing-btn-ghost:hover { background: rgba(255,255,255,.1); }
-  .pricing-btn-primary { background: var(--primary); color: #fff; }
-  .pricing-btn-primary:hover { background: var(--primary-l); }
-
-  /* ── CTA ──────────────────────────────────────────────────────────────── */
-  .cta-section {
-    padding: 100px 48px;
+  /* ── CTA ── */
+  .cta {
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    padding: 60px 48px 120px;
+    position: relative; overflow: hidden;
   }
-  .cta-section::before {
+  .cta::before {
     content: '';
     position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    width: 800px; height: 400px;
-    background: radial-gradient(ellipse, rgba(79,110,247,.18) 0%, transparent 70%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(79,110,247,.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  .cta-section h2 { max-width: 640px; margin: 0 auto 16px; position: relative; }
-  .cta-section p { font-size: 18px; color: var(--text2); max-width: 480px; margin: 0 auto 36px; position: relative; }
-  .cta-actions { display: flex; gap: 12px; justify-content: center; position: relative; }
+  .cta h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800; letter-spacing: -1.5px;
+    margin-bottom: 14px; position: relative;
+  }
+  .cta p { font-size: 17px; color: var(--text2); margin-bottom: 36px; position: relative; }
+  .cta-btn {
+    display: inline-block;
+    padding: 15px 36px; border-radius: 10px;
+    background: var(--primary); color: #fff;
+    font-size: 16px; font-weight: 700;
+    position: relative;
+    box-shadow: 0 0 40px rgba(79,110,247,.25);
+    transition: all .2s;
+  }
+  .cta-btn:hover { opacity: .9; transform: translateY(-1px); }
 
-  /* ── FOOTER ───────────────────────────────────────────────────────────── */
+  /* ── FOOTER ── */
   footer {
     border-top: 1px solid var(--border);
-    padding: 40px 48px;
+    padding: 32px 48px;
     display: flex; align-items: center; justify-content: space-between;
     color: var(--text3); font-size: 13px;
   }
-  .footer-logo { font-weight: 700; font-size: 15px; color: var(--text2); }
   .footer-links { display: flex; gap: 24px; }
   .footer-links a:hover { color: var(--text2); }
 
-  /* responsive */
-  @media (max-width: 900px) {
+  @media (max-width: 640px) {
     nav { padding: 0 20px; }
-    .nav-links { display: none; }
-    section { padding: 60px 24px; }
-    h1 { font-size: 40px; letter-spacing: -1.5px; }
-    .steps-grid, .features-grid, .pricing-grid { grid-template-columns: 1fr; }
-    .example-grid { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .card-row { grid-template-columns: 1fr; }
     .hero { padding: 100px 24px 60px; }
-    footer { flex-direction: column; gap: 16px; }
+    .hero h1 { letter-spacing: -1.5px; }
+    .example { padding: 60px 24px 40px; }
+    .results { grid-template-columns: 1fr; padding: 20px 24px 60px; }
+    .cta { padding: 60px 24px 80px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">
-<div class="nav-logo-text">
-      <div class="nav-logo-name">Salutation HQ</div>
-      <div class="nav-logo-tagline">B2B Outreach</div>
-    </div>
-  </div>
-  <div class="nav-links">
-    <a href="#how">How it works</a>
-    <a href="#features">Features</a>
-    <a href="#example">Example</a>
-  </div>
-  <div class="nav-cta">
-    <a href="mailto:contact@salutationhq.com" class="btn-nav btn-primary-nav">Contact</a>
-  </div>
+  <div class="nav-logo">Salutation HQ</div>
+  <a href="mailto:contact@salutationhq.com" class="nav-contact">Contact</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
 
-  <div class="hero-badge">
-    <span class="badge-dot"></span>
-    AI-powered B2B pipeline generation
-  </div>
+  <h1>Your prospects get<br><span class="dim">a personal email.</span><br><span class="accent">You get the meeting.</span></h1>
+  <p>We find the right companies, reach out, and put qualified meetings on your calendar.</p>
+  <a href="mailto:contact@salutationhq.com" class="hero-cta">Get in touch</a>
+</div>
 
-  <h1>
-    Your outbound pipeline,<br>
-    <span class="gradient-text">on autopilot.</span>
-  </h1>
-
-  <p class="hero-sub">
-    Drop in a list of email addresses. Salutation Headquarters enriches every company, scores each lead, writes personalized cold emails, and sends them — automatically.
-  </p>
-
-  <div class="hero-actions">
-    <a href="mailto:contact@salutationhq.com" class="btn-hero-primary">Contact</a>
-  </div>
-
-  <div class="social-proof">
-    <div class="avatars">
-      <div class="avatar" style="background:#4F6EF7">M</div>
-      <div class="avatar" style="background:#10B981">S</div>
-      <div class="avatar" style="background:#7C3AED">A</div>
-      <div class="avatar" style="background:#F59E0B">J</div>
-      <div class="avatar" style="background:#EF4444">K</div>
+<!-- EMAIL EXAMPLE -->
+<div class="example">
+  <div class="example-label">Example email we send on your behalf</div>
+  <div class="email-chrome">
+    <div class="chrome-bar">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+      <div class="chrome-title">New Message</div>
     </div>
-    <span>Trusted by sales teams worldwide</span>
-    <span style="color:var(--text3)">·</span>
-    <span>⭐⭐⭐⭐⭐ 4.9 / 5</span>
-  </div>
+    <div class="email-meta">
+      <div class="email-meta-row">
+        <span class="lbl">To</span>
+        <span class="val">sarah@evergreenrealty.com</span>
+      </div>
+      <div class="email-meta-row">
+        <span class="lbl">Re</span>
+        <span class="val">Qualified buyers and sellers for Evergreen Realty</span>
+      </div>
+    </div>
+    <div class="email-body">Hi Sarah,
 
-  <!-- App preview -->
-  <div class="preview-wrap" style="margin-top:60px">
-    <div class="preview-glow"></div>
-    <div class="preview-frame">
-      <div class="preview-bar">
-        <div class="dot dot-r"></div>
-        <div class="dot dot-y"></div>
-        <div class="dot dot-g"></div>
-        <div class="preview-url">app.leadflow.io</div>
-      </div>
-      <div class="mini-app">
-        <div class="mini-sidebar">
-          <div class="mini-lead active">
-            <div class="mini-avatar" style="background:rgba(79,110,247,.2);color:#4F6EF7">☁️</div>
-            <div class="mini-name">RapidScale</div>
-            <div class="mini-score sc-high">89</div>
-          </div>
-          <div class="mini-lead">
-            <div class="mini-avatar" style="background:rgba(16,185,129,.2);color:#10B981">📊</div>
-            <div class="mini-name">Vault Analytics</div>
-            <div class="mini-score sc-high">87</div>
-          </div>
-          <div class="mini-lead">
-            <div class="mini-avatar" style="background:rgba(124,58,237,.2);color:#7C3AED">🔗</div>
-            <div class="mini-name">NexusPRM</div>
-            <div class="mini-score sc-high">84</div>
-          </div>
-          <div class="mini-lead">
-            <div class="mini-avatar" style="background:rgba(245,158,11,.2);color:#F59E0B">🤝</div>
-            <div class="mini-name">TalentBridge</div>
-            <div class="mini-score sc-med">65</div>
-          </div>
-          <div class="mini-lead">
-            <div class="mini-avatar" style="background:rgba(239,68,68,.2);color:#EF4444">⚖️</div>
-            <div class="mini-name">Meridian Law</div>
-            <div class="mini-score sc-low">21</div>
-          </div>
-        </div>
-        <div class="mini-main">
-          <div class="mini-company-bar">
-            <div class="mini-company-logo" style="background:rgba(79,110,247,.2);color:#4F6EF7">☁️</div>
-            <div class="mini-company-info">
-              <div class="mini-company-name">RapidScale</div>
-              <div class="mini-company-meta">B2B SaaS · 51–200 employees · rapidscale.io</div>
-            </div>
-            <div class="mini-big-score" style="color:#10B981">89</div>
-          </div>
-          <div class="mini-bars">
-            <div class="mini-bar-row">
-              <div class="mini-bar-lbl">Fit</div>
-              <div class="mini-bar-track"><div class="mini-bar-fill" style="width:91%;background:#4F6EF7"></div></div>
-              <div class="mini-bar-val">91</div>
-            </div>
-            <div class="mini-bar-row">
-              <div class="mini-bar-lbl">Timing</div>
-              <div class="mini-bar-track"><div class="mini-bar-fill" style="width:88%;background:#F59E0B"></div></div>
-              <div class="mini-bar-val">88</div>
-            </div>
-            <div class="mini-bar-row">
-              <div class="mini-bar-lbl">Reachability</div>
-              <div class="mini-bar-track"><div class="mini-bar-fill" style="width:85%;background:#10B981"></div></div>
-              <div class="mini-bar-val">85</div>
-            </div>
-          </div>
-          <div class="mini-email-box">
-            <div class="mini-email-subj">📧 Pipeline for your new sales team at RapidScale</div>
-            <div class="mini-email-body">Congratulations on the Series A — scaling from PLG to a sales-led motion is one of the hardest transitions in SaaS, especially when new AEs need pipeline before they've had a chance to build their own…</div>
-            <div class="mini-send">✉️ Send now</div>
-          </div>
-        </div>
-      </div>
+I came across Evergreen Realty and noticed you're actively growing your presence in the local market — usually that means a constant need for consistent, qualified buyers and sellers.
+
+Here's how we help real estate teams like yours:
+
+  Targeting — We identify homeowners likely to sell and buyers actively searching in your market
+  Outreach — We run tailored email and SMS campaigns that feel local and personal, not mass marketing
+  Qualification — We engage prospects and filter for intent: timeline, budget, readiness
+  Appointment Setting — We book qualified calls and showings directly onto your calendar
+
+This way, your agents can focus on closing deals instead of chasing cold leads. Most of our clients start seeing conversations and appointments within the first couple of weeks.
+
+Would you be open to a quick call to see if this could fit your team?
+
+Max McDonough
+Salutation HQ</div>
+    <div class="email-footer">
+      <button class="send-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Send
+      </button>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
-<div class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-block">
-      <div class="stat-val" style="color:var(--primary)">3–5×</div>
-      <div class="stat-desc">more qualified meetings</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-val" style="color:var(--green)">60s</div>
-      <div class="stat-desc">from email list to first send</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-val" style="color:#A78BFA">100%</div>
-      <div class="stat-desc">AI-personalized per company</div>
-    </div>
+<!-- RESULTS -->
+<div class="results">
+  <div class="result-card">
+    <div class="result-num blue">3–5×</div>
+    <div class="result-desc">more qualified meetings booked each month</div>
+  </div>
+  <div class="result-card">
+    <div class="result-num green">2 wks</div>
+    <div class="result-desc">to your first meeting, typically</div>
+  </div>
+  <div class="result-card">
+    <div class="result-num white">0 hrs</div>
+    <div class="result-desc">of your team's time spent on outreach</div>
   </div>
 </div>
-
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="section-tag">How it works</div>
-  <h2>Five steps from list<br>to booked meeting</h2>
-  <p class="section-sub">Salutation Headquarters handles the entire pipeline — research, scoring, writing, and sending — so your team only talks to people worth talking to.</p>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
-      <div class="step-title">Drop in your email list</div>
-      <div class="step-desc">Paste emails directly, upload a CSV, or pipe them in via API. Salutation Headquarters validates, deduplicates, and ingests them instantly.</div>
-      <div class="step-tags">
-        <span class="step-tag">CSV upload</span>
-        <span class="step-tag">Direct paste</span>
-        <span class="step-tag">REST API</span>
-      </div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
-      <div class="step-title">Enrich every company</div>
-      <div class="step-desc">We pull company data from multiple sources — website scraping, Clearbit, Hunter.io — then synthesize it with Claude AI to build a complete profile including growth signals, tech stack, and hiring trends.</div>
-      <div class="step-tags">
-        <span class="step-tag">Clearbit</span>
-        <span class="step-tag">Hunter.io</span>
-        <span class="step-tag">Claude AI</span>
-      </div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
-      <div class="step-title">Score and rank leads</div>
-      <div class="step-desc">Every lead gets a score out of 100 across three dimensions: fit (ICP match), timing (buy signals now), and reachability. The top 20% are flagged as highest priority.</div>
-      <div class="step-tags">
-        <span class="step-tag">Fit score</span>
-        <span class="step-tag">Timing score</span>
-        <span class="step-tag">Reachability</span>
-      </div>
-    </div>
-    <div class="step-card">
-      <div class="step-num">4</div>
-      <div class="step-title">Generate personalized emails</div>
-      <div class="step-desc">Claude writes a cold email and two follow-ups for each qualified lead. Each email references specific signals — a recent funding round, a new hire, an open role — not generic templates.</div>
-      <div class="step-tags">
-        <span class="step-tag">Cold email</span>
-        <span class="step-tag">Day-3 follow-up</span>
-        <span class="step-tag">Day-7 follow-up</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features" style="padding-top:0">
-  <div class="section-tag">Features</div>
-  <h2>Everything your outbound<br>team needs</h2>
-  <p class="section-sub">Built for sales teams and agencies who need results, not another tool to manage.</p>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🧠</div>
-      <div class="feature-title">AI Enrichment</div>
-      <div class="feature-desc">Every domain is researched and summarized automatically. Industry, size, business model, growth signals — all filled in without manual work.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <div class="feature-title">Lead Scoring</div>
-      <div class="feature-desc">Weighted scoring across fit, timing, and reachability. Configurable ICP rules. Top 20% flagged automatically so you know where to focus.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">✍️</div>
-      <div class="feature-title">Personalized Copy</div>
-      <div class="feature-desc">No templates. Every email is written from scratch using company-specific research. Subject lines, body, follow-ups — all generated by Claude.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">✉️</div>
-      <div class="feature-title">Automated Sending</div>
-      <div class="feature-desc">Send via SendGrid, SMTP, or Gmail. Follow-ups are scheduled automatically on day 3 and day 7. Full send logs and retry support.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🗄️</div>
-      <div class="feature-title">Lead Database</div>
-      <div class="feature-desc">Every lead, score, email, and send event is stored in SQLite or PostgreSQL. Query, filter, and export at any time. Full history preserved.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔌</div>
-      <div class="feature-title">API-First</div>
-      <div class="feature-desc">Every pipeline stage is a clean, independent module. Drop it into your existing stack, hook into your CRM, or run it via CLI. Zero lock-in.</div>
-    </div>
-  </div>
-</section>
-
-<!-- EXAMPLE -->
-<div class="example-section" id="example">
-  <div class="example-inner">
-    <div class="section-tag">Live example</div>
-    <h2>See what Salutation Headquarters<br>produces for a real lead</h2>
-    <p class="section-sub" style="margin-bottom:0">This is actual output from the pipeline — not a mockup.</p>
-
-    <div class="example-grid">
-      <!-- Lead card -->
-      <div>
-        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:12px">Enriched Lead Profile</p>
-        <div class="example-lead-card">
-          <div class="elc-header">
-            <div class="elc-logo">☁️</div>
-            <div>
-              <div class="elc-name">RapidScale</div>
-              <div class="elc-meta">rapidscale.io · B2B SaaS · 51–200 employees</div>
-            </div>
-            <div class="elc-score">
-              <div class="elc-score-val">89</div>
-              <div class="elc-score-lbl">/100</div>
-              <div class="elc-badge">High ⭐</div>
-            </div>
-          </div>
-          <div class="elc-body">
-            <div class="elc-row">
-              <div class="elc-field">
-                <div class="elc-field-lbl">Business Summary</div>
-                <div class="elc-field-val">Cloud infrastructure automation for DevOps teams. Recently closed Series A and is transitioning from product-led to sales-led growth.</div>
-              </div>
-              <div class="elc-field">
-                <div class="elc-field-lbl">Outreach Angle</div>
-                <div class="elc-field-val" style="color:var(--primary-l)">Post-Series A PLG → sales-led pivot with AEs who need pipeline from day one.</div>
-              </div>
-              <div class="elc-field">
-                <div class="elc-field-lbl">Growth Signals</div>
-                <div class="elc-signals">
-                  <div class="elc-signal"><div class="elc-dot"></div>Series A — $12M raised 4 months ago</div>
-                  <div class="elc-signal"><div class="elc-dot"></div>Hiring 3 Account Executives on LinkedIn</div>
-                  <div class="elc-signal"><div class="elc-dot"></div>Open VP of Sales role — building sales motion now</div>
-                  <div class="elc-signal"><div class="elc-dot"></div>Expanding into European market</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Email -->
-      <div>
-        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text3);margin-bottom:12px">Generated Cold Email</p>
-        <div class="email-card">
-          <div class="ec-header">
-            <div class="ec-header-dot" style="background:#FF5F57"></div>
-            <div class="ec-header-dot" style="background:#FEBC2E"></div>
-            <div class="ec-header-dot" style="background:#28C840"></div>
-            <div class="ec-to">To: cto@rapidscale.io</div>
-          </div>
-          <div class="ec-body">
-            <div class="ec-subject">Pipeline for your new sales team at RapidScale</div>
-            <div class="ec-text">Hi Alex,
-
-Congratulations on the Series A — scaling from PLG to a sales-led motion is one of the hardest transitions in SaaS, especially when new AEs need pipeline before they've had a chance to build their own.
-
-We run outbound lead generation for B2B SaaS companies exactly at this stage — targeting the right-fit accounts, enriching contacts, and booking qualified meetings directly into your team's calendars.
-
-Most clients see their first meetings within 2 weeks. Would it be worth a 20-minute call to see if it's a fit for RapidScale?
-
-[Your Name]
-[Agency Name]</div>
-          </div>
-          <div class="ec-footer">
-            <button class="ec-btn ec-btn-primary" onclick="navigator.clipboard.writeText(document.querySelector('.ec-text').innerText)">📋 Copy</button>
-            <button class="ec-btn ec-btn-ghost">✉️ Open in Gmail</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <!-- CTA -->
-<div class="cta-section">
-  <h2>Ready to fill your pipeline?</h2>
-  <p>Drop in a CSV of emails and get your first batch of scored, personalized leads in under 60 seconds.</p>
-  <div class="cta-actions">
-    <a href="mailto:contact@salutationhq.com" class="btn-hero-primary">Contact</a>
-  </div>
+<div class="cta">
+  <h2>Ready to start?</h2>
+  <p>Get your first meeting on the calendar within two weeks.</p>
+  <a href="mailto:contact@salutationhq.com" class="cta-btn">contact@salutationhq.com</a>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">⚡ Salutation Headquarters</div>
+  <div>Salutation HQ</div>
   <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Docs</a>
-    <a href="#">GitHub</a>
     <a href="mailto:contact@salutationhq.com">contact@salutationhq.com</a>
+    <a href="#">Privacy</a>
   </div>
-  <div>© 2026 Salutation Headquarters. All rights reserved.</div>
 </footer>
 
 </body>
